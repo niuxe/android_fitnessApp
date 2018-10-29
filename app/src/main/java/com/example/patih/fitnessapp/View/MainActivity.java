@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         //This better fucing work
+        //
 
     }
 

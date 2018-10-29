@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         //This is my own branch
-
+        //I`m testing merging branches
     }
 
 

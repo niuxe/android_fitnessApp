@@ -48,8 +48,7 @@ public class MainActivity extends Activity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        //This better fucing work
-        //
+        //This is my own branch
 
     }
 

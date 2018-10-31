@@ -11,13 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".View.MainActivity"
-            android:label="@string/title_activity_main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/title_activity_main"></activity>
     </application>
 
 </manifest>

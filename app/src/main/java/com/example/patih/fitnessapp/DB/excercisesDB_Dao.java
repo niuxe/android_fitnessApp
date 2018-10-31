@@ -8,6 +8,8 @@ import androidx.room.Update;
 @Dao
 public interface excercisesDB_Dao {
 
+    //DAO for excercisesDB class
+    //Missing query notations for SQL commands
     @Insert
      void insert(excercisesDB excercises);
 
@@ -16,4 +18,16 @@ public interface excercisesDB_Dao {
 
     @Delete
     void delete(excercisesDB excercises);
+
+    //DAO for calendar DB class
+    //Missing query notations for SQL commands
+    @Insert
+    void insert(calendarDB calendar);
+
+    @Update
+    void update(calendarDB calendar);
+
+    @Delete
+    void delete(calendarDB calendar);
+
 }

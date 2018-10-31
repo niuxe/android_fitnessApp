@@ -7,11 +7,12 @@ import androidx.room.PrimaryKey;
 public class excercisesDB {
 
     @PrimaryKey(autoGenerate = true)
-
+    private int ID;
     private String excerciseName;
     private String excerciseTag;
 
-    public excercisesDB(String excerciseName, String excerciseTag){
+    public excercisesDB(int ID,String excerciseName, String excerciseTag){
+        this.ID=ID;
         this.excerciseName = excerciseName;
         this.excerciseTag = excerciseTag;
     }

@@ -1,7 +1,13 @@
 package com.example.patih.fitnessapp.DB;
 
-@Entity(tableName = "Execercises_table")
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity (tableName = "excercises_Table")
 public class excercisesDB {
+
+    @PrimaryKey(autoGenerate = true)
+
     private String excerciseName;
     private String excerciseTag;
 

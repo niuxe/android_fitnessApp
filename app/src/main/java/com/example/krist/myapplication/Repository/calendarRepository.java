@@ -5,93 +5,92 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import com.example.krist.myapplication.DB.DAO;
-import com.example.krist.myapplication.DB.calendar;
+import com.example.krist.myapplication.DB.Calendar;
 import com.example.krist.myapplication.DB.calendarDatabase;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class calendarRepository {
 
-    private DAO excercisesDAO;
-    private LiveData<List<calendar>> allCalendar;
+    private DAO calendarDAO;
+    private LiveData<List<Calendar>> allCalendar;
 
     public calendarRepository(Application application){
         calendarDatabase databaseCal = calendarDatabase.getInstance(application);
-        excercisesDAO = databaseCal.excerciseDAO();
-        allCalendar = excercisesDAO.getAllCalendars();
+        calendarDAO = databaseCal.excerciseDAO();
+        allCalendar = calendarDAO.getAllCalendars();
     }
 
-    public void insret (calendar calendar){
-        new insertCalendarAsyncTask(excercisesDAO).execute(calendar);
+    public void insret (Calendar Calendar){
+        new insertCalendarAsyncTask(calendarDAO).execute(Calendar);
     }
 
-    public void update(calendar calendar){
-        new updateCalendarAsyncTask(excercisesDAO).execute(calendar);
+    public void update(Calendar Calendar){
+        new updateCalendarAsyncTask(calendarDAO).execute(Calendar);
     }
 
-    public void delete(calendar calendar){
-        new deleteCalendarAsyncTask(excercisesDAO).execute(calendar);
+    public void delete(Calendar Calendar){
+        new deleteCalendarAsyncTask(calendarDAO).execute(Calendar);
     }
 
     public void deleteAllCalendar(){
     }
 
-    public LiveData<List<calendar>> getAllCalendar() {
+    public LiveData<List<Calendar>> getAllCalendar() {
         return allCalendar;
     }
 
-    private static class insertCalendarAsyncTask extends AsyncTask<calendar, Void, Void>{
-    private DAO excercisesDAO;
+    private static class insertCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
+    private DAO calendarDAO;
 
     private insertCalendarAsyncTask(DAO excercisesDAO){
-        this.excercisesDAO = excercisesDAO;
+        this.calendarDAO = excercisesDAO;
     }
 
         @Override
-        protected Void doInBackground(calendar... calendars) {
-            excercisesDAO.insert(calendars[0]);
+        protected Void doInBackground(Calendar... Calendars) {
+            calendarDAO.insert(Calendars[0]);
             return null;
         }
     }
 
-    private static class updateCalendarAsyncTask extends AsyncTask<calendar, Void, Void>{
-        private DAO excercisesDAO;
+    private static class updateCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
+        private DAO calendarDAO;
 
         private updateCalendarAsyncTask(DAO excercisesDAO){
-            this.excercisesDAO = excercisesDAO;
+            this.calendarDAO = excercisesDAO;
         }
 
         @Override
-        protected Void doInBackground(calendar... calendars) {
-            excercisesDAO.update(calendars[0]);
+        protected Void doInBackground(Calendar... Calendars) {
+            calendarDAO.update(Calendars[0]);
             return null;
         }
     }
 
-    private static class deleteCalendarAsyncTask extends AsyncTask<calendar , Void, Void>{
-        private DAO excercisesDAO;
+    private static class deleteCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
+        private DAO calendarDAO;
 
         private deleteCalendarAsyncTask(DAO excercisesDAO){
-            this.excercisesDAO = excercisesDAO;
+            this.calendarDAO = excercisesDAO;
         }
 
         @Override
-        protected Void doInBackground(calendar... calendars) {
-            excercisesDAO.delete(calendars[0]);
+        protected Void doInBackground(Calendar... Calendars) {
+            calendarDAO.delete(Calendars[0]);
             return null;
         }
     }
 
     private static class deleteAllCalendarAsyncTask extends AsyncTask<Void, Void, Void>{
-        private DAO excercisesDAO;
+        private DAO calendarDAO;
 
         private deleteAllCalendarAsyncTask(DAO excercisesDAO){
-            this.excercisesDAO = excercisesDAO;
+            this.calendarDAO = excercisesDAO;
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            excercisesDAO.deleteAllCalendar();
+            calendarDAO.deleteAllCalendar();
             return null;
         }
     }

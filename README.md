@@ -3,7 +3,7 @@ Three week project in AND
 
 
 Must have:
-Up to date calendar,
+Up to date Calendar,
 Workout planner,
 Pre-workout suggestion,
 Progress tracking for performance and weight

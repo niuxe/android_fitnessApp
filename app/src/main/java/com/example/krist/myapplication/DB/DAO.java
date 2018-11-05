@@ -12,32 +12,35 @@ import java.util.List;
 @Dao
 public interface DAO {
 
-    //DAO for excercises class
+    //DAO for Excercise class
     //Missing query notations for SQL commands
     @Insert
-    void insert(excercises excercises);
+    void insert(Excercise Excercise);
 
     @Update
-    void update(excercises excercises);
+    void update(Excercise Excercise);
 
     @Delete
-    void delete(excercises excercises);
+    void delete(Excercise Excercise);
 
-    @Query("SELECT * FROM calendar_table ORDER BY ID" )
-    LiveData<List<calendar>> getAllCalendars();
+    @Query("SELECT * FROM Calendar ORDER BY ID" )
+    LiveData<List<Calendar>> getAllCalendars();
 
-    @Query("DELETE FROM calendar_Table")
+    @Query("DELETE FROM Calendar")
     void deleteAllCalendar();
 
-    //DAO for calendar DB class
+    //DAO for Calendar DB class
     //Missing query notations for SQL commands
     @Insert
-    void insert(calendar calendar);
+    void insert(Calendar Calendar);
 
     @Update
-    void update(calendar calendar);
+    void update(Calendar Calendar);
 
     @Delete
-    void delete(calendar calendar);
+    void delete(Calendar Calendar);
+
+    @Query("SELECT * FROM Excercise ORDER BY ID" )
+    LiveData<List<Excercise>> getAllExcercises();
 
 }

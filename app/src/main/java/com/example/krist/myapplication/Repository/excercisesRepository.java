@@ -35,7 +35,6 @@ public class excercisesRepository {
 
     public void deleteAllExcercises(){
         new deleteAllExcercisesAsyncTask(excercisesDAO).execute();
-
     }
 
     public LiveData<List<Excercise>>getAllExcercises(){
@@ -45,6 +44,7 @@ public class excercisesRepository {
     private static class insertExcercisesAsyncTask extends AsyncTask<Excercise, Void, Void>{
 
         private insertExcercisesAsyncTask(DAO excercisesDAO){
+
             this.excercisesDAO = excercisesDAO;
         }
         @Override
@@ -56,7 +56,8 @@ public class excercisesRepository {
 
     private static class updateExcercisesAsyncTask extends AsyncTask<Excercise, Void, Void>{
 
-        private updateExcercisesAsyncTask(DAO excercisesDAO){
+        private updateExcercisesAsyncTask(DAO excercisesDAO)
+        {
             this.excercisesDAO = excercisesDAO;
         }
         @Override
@@ -68,7 +69,8 @@ public class excercisesRepository {
 
     private static class deleteExcercisesAsyncTask extends AsyncTask<Excercise, Void, Void>{
 
-        private deleteExcercisesAsyncTask(DAO excercisesDAO){
+        private deleteExcercisesAsyncTask(DAO excercisesDAO)
+        {
             this.excercisesDAO = excercisesDAO;
         }
         @Override

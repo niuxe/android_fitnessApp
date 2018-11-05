@@ -43,8 +43,9 @@ public class calendarRepository {
     private static class insertCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
     private DAO calendarDAO;
 
-    private insertCalendarAsyncTask(DAO excercisesDAO){
-        this.calendarDAO = excercisesDAO;
+    private insertCalendarAsyncTask(DAO calendarDAO){
+
+        this.calendarDAO = calendarDAO;
     }
 
         @Override
@@ -57,8 +58,8 @@ public class calendarRepository {
     private static class updateCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
         private DAO calendarDAO;
 
-        private updateCalendarAsyncTask(DAO excercisesDAO){
-            this.calendarDAO = excercisesDAO;
+        private updateCalendarAsyncTask(DAO calendarDAO){
+            this.calendarDAO = calendarDAO;
         }
 
         @Override
@@ -71,8 +72,8 @@ public class calendarRepository {
     private static class deleteCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
         private DAO calendarDAO;
 
-        private deleteCalendarAsyncTask(DAO excercisesDAO){
-            this.calendarDAO = excercisesDAO;
+        private deleteCalendarAsyncTask(DAO calendarDAO){
+            this.calendarDAO = calendarDAO;
         }
 
         @Override
@@ -85,8 +86,8 @@ public class calendarRepository {
     private static class deleteAllCalendarAsyncTask extends AsyncTask<Void, Void, Void>{
         private DAO calendarDAO;
 
-        private deleteAllCalendarAsyncTask(DAO excercisesDAO){
-            this.calendarDAO = excercisesDAO;
+        private deleteAllCalendarAsyncTask(DAO calendarDAO){
+            this.calendarDAO = calendarDAO;
         }
         @Override
         protected Void doInBackground(Void... voids) {

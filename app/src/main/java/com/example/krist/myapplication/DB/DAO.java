@@ -26,6 +26,9 @@ public interface DAO {
     @Query("SELECT * FROM calendar_table ORDER BY ID" )
     LiveData<List<calendar>> getAllCalendars();
 
+    @Query("DELETE FROM calendar_Table")
+    void deleteAllCalendar();
+
     //DAO for calendar DB class
     //Missing query notations for SQL commands
     @Insert

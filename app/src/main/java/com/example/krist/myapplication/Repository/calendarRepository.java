@@ -17,12 +17,12 @@ public class calendarRepository {
     private LiveData<List<calendar>> allCalendar;
 
     public calendarRepository(Application application){
-        calendarDatabase databasecal = calendarDatabase.getInstance(application);
-        excercisesDAO = databasecal.excerciseDAO();
+        calendarDatabase databaseCal = calendarDatabase.getInstance(application);
+        excercisesDAO = databaseCal.excerciseDAO();
         allCalendar = excercisesDAO.getAllCalendars();
     }
 
-    public void insret (Calendar calendar){
+    public void insret (calendar calendar){
         new insertCalendarAsyncTask(excercisesDAO).execute(calendar);
     }
 
@@ -39,41 +39,44 @@ public class calendarRepository {
         return allCalendar;
     }
 
-    private static class insertCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
+    private static class insertCalendarAsyncTask extends AsyncTask<calendar, Void, Void>{
     private DAO excercisesDAO;
 
     private insertCalendarAsyncTask(DAO excercisesDAO){
         this.excercisesDAO = excercisesDAO;
     }
+
         @Override
-        protected Void doInBackground(Calendar... calendars) {
-        excercisesDAO.insert(calendar[0]);
+        protected Void doInBackground(calendar... calendars) {
+            excercisesDAO.insert(calendars[0]);
             return null;
         }
     }
 
-    private static class updateCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
+    private static class updateCalendarAsyncTask extends AsyncTask<calendar, Void, Void>{
         private DAO excercisesDAO;
 
         private updateCalendarAsyncTask(DAO excercisesDAO){
             this.excercisesDAO = excercisesDAO;
         }
+
         @Override
-        protected Void doInBackground(Calendar... calendars) {
-            excercisesDAO.update(calendar[0]);
+        protected Void doInBackground(calendar... calendars) {
+            excercisesDAO.update(calendars[0]);
             return null;
         }
     }
 
-    private static class deleteCalendarAsyncTask extends AsyncTask<Calendar, Void, Void>{
+    private static class deleteCalendarAsyncTask extends AsyncTask<calendar , Void, Void>{
         private DAO excercisesDAO;
 
         private deleteCalendarAsyncTask(DAO excercisesDAO){
             this.excercisesDAO = excercisesDAO;
         }
+
         @Override
-        protected Void doInBackground(Calendar... calendars) {
-            excercisesDAO.delete(calendar[0]);
+        protected Void doInBackground(calendar... calendars) {
+            excercisesDAO.delete(calendars[0]);
             return null;
         }
     }
@@ -86,7 +89,7 @@ public class calendarRepository {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            excercisesDAO.insert(calendar[0]);
+            excercisesDAO.deleteAllCalendar();
             return null;
         }
     }

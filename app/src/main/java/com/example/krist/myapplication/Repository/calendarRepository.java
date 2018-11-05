@@ -26,10 +26,12 @@ public class calendarRepository {
         new insertCalendarAsyncTask(excercisesDAO).execute(calendar);
     }
 
-    public void update(Calendar calendar){
+    public void update(calendar calendar){
+        new updateCalendarAsyncTask(excercisesDAO).execute(calendar);
     }
 
-    public void delete(Calendar calendar){
+    public void delete(calendar calendar){
+        new deleteCalendarAsyncTask(excercisesDAO).execute(calendar);
     }
 
     public void deleteAllCalendar(){

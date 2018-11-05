@@ -12,25 +12,22 @@ public class excercises {
     private String excerciseTag;
 
     public excercises(int ID, String excerciseName, String excerciseTag){
-        this.ID=ID;
+        //this.ID=ID;
         this.excerciseName = excerciseName;
         this.excerciseTag = excerciseTag;
     }
 
-    public void setExcerciseName(String excerciseName){
-        this.excerciseName = excerciseName;
+    public void setID(int ID) {
+        this.ID = ID;
     }
-
-    public void setExcerciseTag(String excerciseTag){
-        this.excerciseTag =excerciseTag;
-    }
-
     public String getExcerciseName(){
         return excerciseName;
     }
-
     public String getExcerciseTag(){
         return excerciseTag;
+    }
+    public int getID() {
+        return ID;
     }
 }
 

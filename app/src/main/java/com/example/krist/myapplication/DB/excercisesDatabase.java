@@ -6,7 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 @Database(entities = excercises.class, version =1)
-public abstract class excerciseDatabase extends RoomDatabase {
+public abstract class excercisesDatabase extends RoomDatabase {
 
     private static excerciseDatabase instance;
 

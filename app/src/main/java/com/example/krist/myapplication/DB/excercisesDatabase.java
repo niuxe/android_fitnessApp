@@ -8,14 +8,14 @@ import android.content.Context;
 @Database(entities = excercises.class, version =1)
 public abstract class excercisesDatabase extends RoomDatabase {
 
-    private static excerciseDatabase instance;
+    private static excercisesDatabase instance;
 
     public abstract DAO excerciseDAO();
 
-    public static synchronized excerciseDatabase getInstance(Context context) {
+    public static synchronized excercisesDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    excerciseDatabase.class, "excercise_database")
+                    excercisesDatabase.class, "excercise_database")
                     .fallbackToDestructiveMigration()
                     .build();
         }

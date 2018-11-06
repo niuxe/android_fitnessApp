@@ -26,7 +26,6 @@ public class excercisesRepository {
 
     public void update(Excercise excercises){
         new updateExcercisesAsyncTask(excercisesDAO).execute(excercises);
-
     }
 
     public void delete(Excercise excercises){
@@ -42,11 +41,10 @@ public class excercisesRepository {
     }
 
     private static class insertExcercisesAsyncTask extends AsyncTask<Excercise, Void, Void>{
+        private DAO excercisesDAO;
 
         private insertExcercisesAsyncTask(DAO excercisesDAO){
-
-            this.excercisesDAO = excercisesDAO;
-        }
+            this.excercisesDAO = excercisesDAO;}
         @Override
         protected Void doInBackground(Excercise... excercises) {
             excercisesDAO.insert(excercises[0]);
@@ -55,6 +53,7 @@ public class excercisesRepository {
     }
 
     private static class updateExcercisesAsyncTask extends AsyncTask<Excercise, Void, Void>{
+        private DAO excercisesDAO;
 
         private updateExcercisesAsyncTask(DAO excercisesDAO)
         {
@@ -68,6 +67,7 @@ public class excercisesRepository {
     }
 
     private static class deleteExcercisesAsyncTask extends AsyncTask<Excercise, Void, Void>{
+        private DAO excercisesDAO;
 
         private deleteExcercisesAsyncTask(DAO excercisesDAO)
         {
@@ -81,6 +81,7 @@ public class excercisesRepository {
     }
 
     private static class deleteAllExcercisesAsyncTask extends AsyncTask<Excercise, Void, Void>{
+        private DAO excercisesDAO;
 
         private deleteAllExcercisesAsyncTask(DAO excercisesDAO){
             this.excercisesDAO = excercisesDAO;

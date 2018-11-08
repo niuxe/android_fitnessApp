@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 
 public class Fragment2_Today extends Fragment{
 
@@ -23,7 +25,9 @@ public class Fragment2_Today extends Fragment{
         exercisesList.hasFixedSize();
         exercisesList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        exerciseAdapter = new ExercisesAdapter();
+        ArrayList<Exercises> exercises = new ArrayList<>();
+
+        exerciseAdapter = new ExercisesAdapter(exercises);
         exercisesList.setAdapter(exerciseAdapter);
 
 

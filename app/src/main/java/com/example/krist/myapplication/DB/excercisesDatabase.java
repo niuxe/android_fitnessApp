@@ -8,7 +8,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-@Database(entities = Excercise.class, version =1)
+@Database(entities = Excercise_D.class, version =1)
 public abstract class excercisesDatabase extends RoomDatabase {
 
     private static excercisesDatabase instance;
@@ -42,7 +42,7 @@ public abstract class excercisesDatabase extends RoomDatabase {
 
        @Override
        protected Void doInBackground(Void... voids) {
-          excercisesDAO.insert(new Excercise(1,"bench press","top"));
+          excercisesDAO.insert(new Excercise_D(1,"bench press","top"));
     return null;
     }
    }

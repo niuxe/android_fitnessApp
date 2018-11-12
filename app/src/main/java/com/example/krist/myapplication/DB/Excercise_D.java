@@ -4,14 +4,14 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "excercises_Table")
-public class Excercise {
+public class Excercise_D {
 
     @PrimaryKey(autoGenerate = true)
     private int ID;
     private String excerciseName;
     private String excerciseTag;
 
-    public Excercise(int ID, String excerciseName, String excerciseTag){
+    public Excercise_D(int ID, String excerciseName, String excerciseTag){
         //this.ID=ID;
         this.excerciseName = excerciseName;
         this.excerciseTag = excerciseTag;

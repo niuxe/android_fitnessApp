@@ -5,21 +5,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.krist.myapplication.DB.ExcerciseViewModel;
 
-import java.util.ArrayList;
 
 public class Fragment3_Graph extends Fragment {
-
-    ArrayList<Exercises> exercises = new ArrayList<>();
-
+    ExcerciseViewModel EVM;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.graph_fragment, container, false);
 
-        for (Exercises E: exercises) {
-
-        }
+        EVM.GraphSortExercises();
 
         return rootView;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        EVM.ClearGraphs();
     }
 }

@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 
 import com.example.krist.myapplication.DB.DAO;
 import com.example.krist.myapplication.DB.Excercise_D;
-import com.example.krist.myapplication.DB.excercisesDatabase;
+import com.example.krist.myapplication.DB.ExcercisesDatabase;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class excercisesRepository {
     private LiveData<List<Excercise_D>> allExcercises;
 
     public excercisesRepository(Application application){
-        excercisesDatabase databaseEx = excercisesDatabase.getInstance(application);
+        ExcercisesDatabase databaseEx = ExcercisesDatabase.getInstance(application);
     excercisesDAO = databaseEx.excerciseDAO();
     allExcercises = excercisesDAO.getAllExcercises();
     }

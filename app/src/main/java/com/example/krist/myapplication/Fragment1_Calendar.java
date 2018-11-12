@@ -41,7 +41,6 @@ public class Fragment1_Calendar extends Fragment{
             }
         });
         //here it should be displaying the workout below the calendar.. will implement after database is ready.
-        todaysWorkout = rootView.findViewById(R.id.todaysWorkoutView);
 
         return rootView;
     }

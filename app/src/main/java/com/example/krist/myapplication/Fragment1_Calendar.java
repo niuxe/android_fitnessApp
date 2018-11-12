@@ -26,7 +26,7 @@ public class Fragment1_Calendar extends Fragment{
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.calendar_fragment, container, false);
         //displaying the current date above the calendar
-        todaysDate = (TextView)rootView.findViewById(R.id.todaysDateView);
+        todaysDate = rootView.findViewById(R.id.todaysDateView);
         c = java.util.Calendar.getInstance();
         dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         date = new Date();
@@ -41,7 +41,7 @@ public class Fragment1_Calendar extends Fragment{
             }
         });
         //here it should be displaying the workout below the calendar.. will implement after database is ready.
-        todaysWorkout = (TextView)rootView.findViewById(R.id.todaysWorkoutView);
+        todaysWorkout = rootView.findViewById(R.id.todaysWorkoutView);
 
         return rootView;
     }

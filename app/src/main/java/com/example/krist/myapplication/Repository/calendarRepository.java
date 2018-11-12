@@ -18,7 +18,7 @@ public class calendarRepository {
     public calendarRepository(Application application){
         CalendarDatabase databaseCal = CalendarDatabase.getInstance(application);
         calendarDAO = databaseCal.excerciseDAO();
-        allCalendar = calendarDAO.getAllCalendars();
+        //allCalendar = calendarDAO.getAllCalendars();
     }
 
     public void insret (Calendar_D Calendar){
@@ -91,7 +91,7 @@ public class calendarRepository {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            calendarDAO.deleteAllCalendar();
+            //calendarDAO.deleteAllCalendar();
             return null;
         }
     }

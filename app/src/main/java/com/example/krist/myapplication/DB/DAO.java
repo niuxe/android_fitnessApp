@@ -1,43 +1,42 @@
 package com.example.krist.myapplication.DB;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
-
-import java.util.List;
 
 @Dao
 public interface DAO {
 
-    //DAO for excercises class
+    //DAO for Excercise_D class
     //Missing query notations for SQL commands
     @Insert
-    void insert(excercises excercises);
+    void insert(Excercise_D excercise);
 
     @Update
-    void update(excercises excercises);
+    void update(Excercise_D excercise);
 
     @Delete
-    void delete(excercises excercises);
+    void delete(Excercise_D excercise);
 
-    @Query("SELECT * FROM calendar_table ORDER BY ID" )
-    LiveData<List<calendar>> getAllCalendars();
+   // @Query("SELECT * FROM Calendar_D ORDER BY ID" )
+   // LiveData<List<Calendar_D>> getAllCalendars();
 
-    @Query("DELETE FROM calendar_Table")
-    void deleteAllCalendar();
+   // @Query("DELETE FROM Calendar_D")
+   // void deleteAllCalendar();
 
-    //DAO for calendar DB class
+    //DAO for Calendar_D DB class
     //Missing query notations for SQL commands
     @Insert
-    void insert(calendar calendar);
+    void insert(Calendar_D calendar);
 
     @Update
-    void update(calendar calendar);
+    void update(Calendar_D calendar);
 
     @Delete
-    void delete(calendar calendar);
+    void delete(Calendar_D calendar);
+
+  //  @Query("SELECT * FROM Excercise_D ORDER BY ID" )
+  //  LiveData<List<Excercise_D>> getAllExcercises();
 
 }

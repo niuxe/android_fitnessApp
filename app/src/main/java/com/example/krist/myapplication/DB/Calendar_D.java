@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "calendar_Table")
-public class calendar {
+public class Calendar_D {
 
     @PrimaryKey(autoGenerate = true)
     private int ID;
@@ -13,7 +13,7 @@ public class calendar {
     private int weight;
     private int sets;
 
-    public calendar(String date, String excerciseName, int weight, int sets) {
+    public Calendar_D(String date, String excerciseName, int weight, int sets) {
         this.date = date;
         this.excerciseName = excerciseName;
         this.weight = weight;

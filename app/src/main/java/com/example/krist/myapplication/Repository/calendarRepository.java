@@ -4,9 +4,9 @@ import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import com.example.krist.myapplication.DB.CalendarDatabase;
 import com.example.krist.myapplication.DB.Calendar_D;
 import com.example.krist.myapplication.DB.DAO;
+import com.example.krist.myapplication.DB.CalendarDatabase;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class calendarRepository {
     public calendarRepository(Application application){
         CalendarDatabase databaseCal = CalendarDatabase.getInstance(application);
         calendarDAO = databaseCal.excerciseDAO();
-        //allCalendar = calendarDAO.getAllCalendars();
+        allCalendar = calendarDAO.getAllCalendars();
     }
 
     public void insret (Calendar_D Calendar){
@@ -91,7 +91,7 @@ public class calendarRepository {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            //calendarDAO.deleteAllCalendar();
+            calendarDAO.deleteAllCalendar();
             return null;
         }
     }

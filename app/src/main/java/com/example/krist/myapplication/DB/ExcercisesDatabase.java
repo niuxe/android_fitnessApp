@@ -9,16 +9,16 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 @Database(entities = Excercise_D.class, version =1)
-public abstract class excercisesDatabase extends RoomDatabase {
+public abstract class ExcercisesDatabase extends RoomDatabase {
 
-    private static excercisesDatabase instance;
+    private static ExcercisesDatabase instance;
 
     public abstract DAO excerciseDAO();
 
-    public static synchronized excercisesDatabase getInstance(Context context) {
+    public static synchronized ExcercisesDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    excercisesDatabase.class, "excercise_database")
+                    ExcercisesDatabase.class, "excercise_database")
                     .fallbackToDestructiveMigration()
                     .build();
         }
@@ -36,7 +36,7 @@ public abstract class excercisesDatabase extends RoomDatabase {
 
    private static class populateExcercisesDBAsyncTask extends AsyncTask<Void, Void, Void>{
     private DAO excercisesDAO;
-    private populateExcercisesDBAsyncTask(excercisesDatabase databaseEX){
+    private populateExcercisesDBAsyncTask(ExcercisesDatabase databaseEX){
         excercisesDAO = databaseEX.excerciseDAO();
     }
 

@@ -11,32 +11,32 @@ public interface DAO {
     //DAO for Excercise_D class
     //Missing query notations for SQL commands
     @Insert
-    void insert(Excercise_D excercise);
+    void insert(Excercise_D Excercise);
 
     @Update
-    void update(Excercise_D excercise);
+    void update(Excercise_D Excercise);
 
     @Delete
-    void delete(Excercise_D excercise);
+    void delete(Excercise_D Excercise);
 
-   // @Query("SELECT * FROM Calendar_D ORDER BY ID" )
-   // LiveData<List<Calendar_D>> getAllCalendars();
+    // @Query("SELECT * FROM Calendar_D ORDER BY ID" )
+    // LiveData<List<Calendar_D>> getAllCalendars();
 
-   // @Query("DELETE FROM Calendar_D")
-   // void deleteAllCalendar();
+    // @Query("DELETE FROM Calendar_D")
+    //void deleteAllCalendar();
 
     //DAO for Calendar_D DB class
     //Missing query notations for SQL commands
     @Insert
-    void insert(Calendar_D calendar);
+    void insert(Calendar_D Calendar);
 
     @Update
-    void update(Calendar_D calendar);
+    void update(Calendar_D Calendar);
 
     @Delete
-    void delete(Calendar_D calendar);
+    void delete(Calendar_D Calendar);
 
-  //  @Query("SELECT * FROM Excercise_D ORDER BY ID" )
-  //  LiveData<List<Excercise_D>> getAllExcercises();
+    // @Query("SELECT * FROM Excercise_D ORDER BY ID" )
+    // LiveData<List<Excercise_D>> getAllExcercises();
 
 }

@@ -8,17 +8,17 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-@Database(entities = Calendar.class, version =1)
-public abstract class calendarDatabase extends RoomDatabase {
+@Database(entities = Calendar_D.class, version =1)
+public abstract class CalendarDatabase extends RoomDatabase {
 
-    private static calendarDatabase instance;
+    private static CalendarDatabase instance;
 
     public abstract DAO excerciseDAO();
 
-    public static synchronized calendarDatabase getInstance(Context context) {
+    public static synchronized CalendarDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    calendarDatabase.class, "calendar_database")
+                    CalendarDatabase.class, "calendar_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(calendarCallback)
                     .build();
@@ -35,14 +35,14 @@ public abstract class calendarDatabase extends RoomDatabase {
     };
     private static class populateCalendarDBAsyncTask extends AsyncTask<Void, Void,Void>{
         private DAO calendarDAO;
-        private populateCalendarDBAsyncTask(calendarDatabase databaseCAL){
+        private populateCalendarDBAsyncTask(CalendarDatabase databaseCAL){
             calendarDAO = databaseCAL.excerciseDAO();
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            calendarDAO.insert(new Calendar("date1","excercise name 1" ,10,5));
-            calendarDAO.insert(new Calendar("date2","excercise name 2" ,11,6));
-            calendarDAO.insert(new Calendar("date3","excercise name 3" ,12,7));
+            calendarDAO.insert(new Calendar_D("date1","excercise name 1" ,10,5));
+            calendarDAO.insert(new Calendar_D("date2","excercise name 2" ,11,6));
+            calendarDAO.insert(new Calendar_D("date3","excercise name 3" ,12,7));
 
             return null;
         }

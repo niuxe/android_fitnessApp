@@ -8,10 +8,6 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
-import com.example.krist.myapplication.DB.Calendar;
-
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

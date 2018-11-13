@@ -36,10 +36,12 @@ public class FitnessViewModel extends AndroidViewModel {
         return allFitness;
     }
 
-
+    DataPoint[] squats;
     public DataPoint[] getSquats(){
+        if(squats != null) return squats;
+
         getAllFitness();
-        DataPoint[] temp = new DataPoint[getAllFitness().getValue().size()];
+        squats = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
 
         for (Fitness fitness :allFitness.getValue()) {
@@ -50,17 +52,19 @@ public class FitnessViewModel extends AndroidViewModel {
                 //create a new datapoint
                 DataPoint tempDP = new DataPoint(day, month);
                 //Insert datapoint into array and increment counter
-                temp[indexer] = tempDP;
+                squats[indexer] = tempDP;
                 indexer++;
             }
         }
-
-        return temp;
+        return squats;
     }
 
+    DataPoint[] deadlift;
     public DataPoint[] getDeadlift(){
+        if(deadlift != deadlift) return deadlift;
+
         getAllFitness();
-        DataPoint[] temp = new DataPoint[getAllFitness().getValue().size()];
+        deadlift = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
 
         for (Fitness fitness :allFitness.getValue()) {
@@ -71,17 +75,20 @@ public class FitnessViewModel extends AndroidViewModel {
                 //create a new datapoint
                 DataPoint tempDP = new DataPoint(day, month);
                 //Insert datapoint into array and increment counter
-                temp[indexer] = tempDP;
+                deadlift[indexer] = tempDP;
                 indexer++;
             }
         }
 
-        return temp;
+        return deadlift;
     }
 
+    DataPoint[] benchpress;
     public DataPoint[] getBenchPress(){
+        if(benchpress != null) return benchpress;
+
         getAllFitness();
-        DataPoint[] temp = new DataPoint[getAllFitness().getValue().size()];
+        benchpress = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
 
         for (Fitness fitness :allFitness.getValue()) {
@@ -92,11 +99,11 @@ public class FitnessViewModel extends AndroidViewModel {
                 //create a new datapoint
                 DataPoint tempDP = new DataPoint(day, month);
                 //Insert datapoint into array and increment counter
-                temp[indexer] = tempDP;
+                benchpress[indexer] = tempDP;
                 indexer++;
             }
         }
 
-        return temp;
+        return benchpress;
     }
 }

@@ -5,7 +5,10 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = Fitness.class,version = 1)
+
+//exportSchema = false -> ask Kasper tmrw
+
+@Database(entities = Fitness.class,version = 1, exportSchema = false)
 public abstract class FitnessDB extends RoomDatabase {
 
     private static FitnessDB instance;

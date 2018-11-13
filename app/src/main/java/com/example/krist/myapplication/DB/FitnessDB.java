@@ -39,14 +39,14 @@ public abstract class FitnessDB extends RoomDatabase {
     };
     private static class populateFitnessDBAsyncTask extends AsyncTask<Void, Void,Void> {
         private FitnessDAO fitnessDao;
-        private populateFitnessDBAsyncTask(FitnessDB fitnessDb){
-            fitnessDao = fitnessDb.fitnessDao();
+        private populateFitnessDBAsyncTask(FitnessDB db){
+            fitnessDao = db.fitnessDao();
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            fitnessDao.insert(new FitnessDB("12/05/2018","push-ups",12,2,2));
-            fitnessDao.insert(new FitnessDB("12/05/2018","push-ups",12,2,2));
-            fitnessDao.insert(new FitnessDB("12/05/2018","push-ups",12,2,2));
+            fitnessDao.insert(new Fitness("12/05/2018","push-ups",12,2,2));
+            fitnessDao.insert(new Fitness("12/05/2018","push-ups",12,2,2));
+            fitnessDao.insert(new Fitness("12/05/2018","push-ups",12,2,2));
 
             return null;
         }

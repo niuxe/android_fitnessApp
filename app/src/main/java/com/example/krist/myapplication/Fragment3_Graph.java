@@ -5,16 +5,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.krist.myapplication.DB.ExcerciseViewModel;
+import com.example.krist.myapplication.DB.FitnessViewModel;
 
 
 public class Fragment3_Graph extends Fragment {
-    ExcerciseViewModel EVM;
+    FitnessViewModel FVM;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.graph_fragment, container, false);
 
-        EVM.GraphSortExercises();
+        //FVM.getSquats();
+        //FVM.getBenchPress();
+        //&FVM.getDeadlift();
+
 
         return rootView;
     }
@@ -23,6 +26,6 @@ public class Fragment3_Graph extends Fragment {
     public void onPause() {
         super.onPause();
 
-        EVM.ClearGraphs();
+
     }
 }

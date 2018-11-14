@@ -4,10 +4,12 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.jjoe64.graphview.series.DataPoint;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FitnessViewModel extends AndroidViewModel {
@@ -45,12 +47,15 @@ public class FitnessViewModel extends AndroidViewModel {
         int indexer = 0;
 
         for (Fitness fitness :allFitness.getValue()) {
-            if(fitness.getExerciseName().equalsIgnoreCase("squat")) {
+            if (fitness.getExerciseName().equalsIgnoreCase("squat")) {
                 //Substring day and months from the date
-                int month = Integer.valueOf(fitness.getDate().substring(3,5));
-                int day = Integer.valueOf(fitness.getDate().substring(0,2));
+                int month = Integer.valueOf(fitness.getDate().substring(3, 5));
+                int day = Integer.valueOf(fitness.getDate().substring(0, 2));
+                int year = Integer.valueOf(fitness.getDate().substring(6));
+                int date = year*10000+month*100+day;
+                Log.e("Hej", date+"");
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(day, month);
+                DataPoint tempDP = new DataPoint(date, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 squats[indexer] = tempDP;
                 indexer++;
@@ -63,7 +68,7 @@ public class FitnessViewModel extends AndroidViewModel {
     public DataPoint[] getDeadlift(){
         if(deadlift != deadlift) return deadlift;
 
-        getAllFitness();
+
         deadlift = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
 
@@ -72,8 +77,10 @@ public class FitnessViewModel extends AndroidViewModel {
                 //Substring day and months from the date
                 int month = Integer.valueOf(fitness.getDate().substring(3,5));
                 int day = Integer.valueOf(fitness.getDate().substring(0,2));
+                int year = Integer.valueOf(fitness.getDate().substring(6));
+                int date = year*10000+month*100+day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(day, month);
+                DataPoint tempDP = new DataPoint(date, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 deadlift[indexer] = tempDP;
                 indexer++;
@@ -96,8 +103,11 @@ public class FitnessViewModel extends AndroidViewModel {
                 //Substring day and months from the date
                 int month = Integer.valueOf(fitness.getDate().substring(3,5));
                 int day = Integer.valueOf(fitness.getDate().substring(0,2));
+                int year = Integer.valueOf(fitness.getDate().substring(6));
+                int date = year*10000+month*100+day;
+                Log.e("Hej", date+"");
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(day, month);
+                DataPoint tempDP = new DataPoint(date, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 benchpress[indexer] = tempDP;
                 indexer++;

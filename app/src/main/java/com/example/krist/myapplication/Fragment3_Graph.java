@@ -24,7 +24,7 @@ import java.util.List;
 
 public class Fragment3_Graph extends Fragment {
     private FitnessViewModel FVM;
-    private BarGraphSeries<DataPoint> squatSeries;
+    private LineGraphSeries<DataPoint> squatSeries;
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.graph_fragment, container, false);
@@ -44,7 +44,7 @@ public class Fragment3_Graph extends Fragment {
             public void onChanged(@Nullable List<Fitness> fitnesses) {
 
                 if(!fitnesses.isEmpty()) {
-                    squatSeries = new BarGraphSeries<>(new DataPoint[] {
+                    squatSeries = new LineGraphSeries<>(new DataPoint[] {
                             new DataPoint(0,1),
                             new DataPoint(2,3),
                             new DataPoint(4,5)

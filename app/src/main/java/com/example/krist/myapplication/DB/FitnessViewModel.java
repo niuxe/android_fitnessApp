@@ -69,9 +69,9 @@ public class FitnessViewModel extends AndroidViewModel {
     public DataPoint[] getDeadlift(){
         if(deadlift != deadlift) return deadlift;
 
-
         deadlift = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
+        int xAxis  = 1;
 
         for (Fitness fitness :allFitness.getValue()) {
             if(fitness.getExerciseName().equalsIgnoreCase("deadlift")) {
@@ -81,10 +81,11 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(6));
                 int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(date, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(xAxis, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 deadlift[indexer] = tempDP;
                 indexer++;
+                xAxis++;
             }
         }
 
@@ -95,9 +96,9 @@ public class FitnessViewModel extends AndroidViewModel {
     public DataPoint[] getBenchPress(){
         if(benchpress != null) return benchpress;
 
-        getAllFitness();
         benchpress = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
+        int xAxis  = 1;
 
         for (Fitness fitness :allFitness.getValue()) {
             if(fitness.getExerciseName().equalsIgnoreCase("bench press")) {
@@ -107,10 +108,11 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(6));
                 int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(date, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(xAxis, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 benchpress[indexer] = tempDP;
                 indexer++;
+                xAxis++;
             }
         }
 

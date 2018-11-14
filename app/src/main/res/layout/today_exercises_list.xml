@@ -11,21 +11,32 @@
     android:text="Exercise"
     android:textSize="20sp"
     android:textAlignment="center"
+    android:gravity="center"
         />
-    
+
     <TextView
-     android:id="@+id/sets"
-     android:layout_width="100dp"
-     android:layout_height="50dp"
-     android:text="Sets"
-     android:textSize="20sp"
-     android:textAlignment="center"
-        />
+        android:id="@+id/sets"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="Sets"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
     <TextView
-     android:id="@+id/reps"
-     android:layout_width="100dp"
-     android:layout_height="50dp"
-     android:text="Reps"
-     android:textSize="20sp"
-     android:textAlignment="center"/>
+        android:id="@+id/reps"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="Reps"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Weight"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:gravity="center"/>
 </LinearLayout>

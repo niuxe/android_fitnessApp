@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.krist.myapplication.DB.Fitness;
 import com.example.krist.myapplication.DB.FitnessViewModel;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -23,39 +24,38 @@ import java.util.List;
 
 public class Fragment3_Graph extends Fragment {
     private FitnessViewModel FVM;
-    private LineGraphSeries<DataPoint> squatSeries;
+    private BarGraphSeries<DataPoint> squatSeries;
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.graph_fragment, container, false);
 
         FVM = ViewModelProviders.of(this).get(FitnessViewModel.class);
 
-        GraphView squatGraph = rootView.findViewById(R.id.graph);
+        final GraphView squatGraph = (GraphView) rootView.findViewById(R.id.graph);
         squatGraph.getViewport().setMinX(0);
         squatGraph.getViewport().setMaxX(10);
         squatGraph.getViewport().setMinY(0);
         squatGraph.getViewport().setMaxX(10);
+
+        squatGraph.getViewport().setScalable(true);
 
         FVM.getAllFitness().observe(this, new Observer<List<Fitness>>() {
             @Override
             public void onChanged(@Nullable List<Fitness> fitnesses) {
 
                 if(!fitnesses.isEmpty()) {
-                    squatSeries = new LineGraphSeries<>(new DataPoint[] {
+                    squatSeries = new BarGraphSeries<>(new DataPoint[] {
                             new DataPoint(0,1),
                             new DataPoint(2,3),
                             new DataPoint(4,5)
 
                     });
-                    squatSeries.setDrawDataPoints(true);
-                    squatSeries.setThickness(8);
                     squatSeries.setColor(Color.GREEN);
+                    squatGraph.addSeries(squatSeries);
                 }
 
             }
         });
-        if(squatSeries != null)
-        squatGraph.addSeries(squatSeries);
 
 
 

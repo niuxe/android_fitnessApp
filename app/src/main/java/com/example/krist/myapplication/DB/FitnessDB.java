@@ -49,9 +49,18 @@ public abstract class FitnessDB extends RoomDatabase {
             fitnessDao.insert(new Fitness("18/11/2018","Bench Press",90,5,4));
             fitnessDao.insert(new Fitness("25/11/2018","Bench Press",90,5,4));
 
-            fitnessDao.insert(new Fitness("10/11/2018","Squat",70,4,8));
-            fitnessDao.insert(new Fitness("17/11/2018","Squat",70,4,8));
-            fitnessDao.insert(new Fitness("24/11/2018","Squat",70,4,8));
+            fitnessDao.insert(new Fitness("10/09/2018","Squat",65,4,8));
+            fitnessDao.insert(new Fitness("17/09/2018","Squat",70,4,8));
+            fitnessDao.insert(new Fitness("24/09/2018","Squat",70,4,8));
+            fitnessDao.insert(new Fitness("10/10/2018","Squat",70,4,8));
+            fitnessDao.insert(new Fitness("17/10/2018","Squat",75,4,8));
+            fitnessDao.insert(new Fitness("24/10/2018","Squat",75,4,8));
+            fitnessDao.insert(new Fitness("10/11/2018","Squat",75,4,8));
+            fitnessDao.insert(new Fitness("17/11/2018","Squat",80,4,8));
+            fitnessDao.insert(new Fitness("24/11/2018","Squat",80,4,8));
+            fitnessDao.insert(new Fitness("10/12/2018","Squat",80,4,8));
+            fitnessDao.insert(new Fitness("17/12/2018","Squat",90,4,8));
+            fitnessDao.insert(new Fitness("24/12/2018","Squat",90,4,8));
 
             return null;
         }

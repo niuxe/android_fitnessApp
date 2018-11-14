@@ -32,28 +32,36 @@ public class Fragment3_Graph extends Fragment {
         FVM = ViewModelProviders.of(this).get(FitnessViewModel.class);
 
         final GraphView squatGraph = (GraphView) rootView.findViewById(R.id.graph);
-        squatGraph.getViewport().setMinX(0);
-        squatGraph.getViewport().setMaxX(10);
-        squatGraph.getViewport().setMinY(0);
-        squatGraph.getViewport().setMaxX(10);
 
-        squatGraph.getViewport().setScalable(true);
+        squatSeries = new LineGraphSeries<>(new DataPoint[]{
+            new DataPoint(0, 50)
+        });
+
+        squatSeries.setThickness(8);
+        squatSeries.setDataPointsRadius(15);
+        squatSeries.setColor(Color.GREEN);
+        squatSeries.setDrawDataPoints(true);
+
+
 
         FVM.getAllFitness().observe(this, new Observer<List<Fitness>>() {
             @Override
             public void onChanged(@Nullable List<Fitness> fitnesses) {
-
                 if(!fitnesses.isEmpty()) {
-                    squatSeries = new LineGraphSeries<>(new DataPoint[] {
-                            new DataPoint(0,1),
-                            new DataPoint(2,3),
-                            new DataPoint(4,5)
+                    for (DataPoint temp: FVM.getSquats()) {
+                        if(temp != null) {
+                            Log.e("hej", temp.getX() + "");
+                            squatSeries.appendData(temp, false, 15, true);
 
-                    });
-                    squatSeries.setColor(Color.GREEN);
-                    squatGraph.addSeries(squatSeries);
+                            squatGraph.getViewport().setMinX(0);
+                            squatGraph.getViewport().setMinY(0);
+                            squatGraph.getViewport().setMaxX(20);
+                            squatGraph.getViewport().setMaxY(200);
+
+                            squatGraph.addSeries(squatSeries);
+                        }
+                    }
                 }
-
             }
         });
 

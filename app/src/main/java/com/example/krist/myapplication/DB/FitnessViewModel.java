@@ -42,23 +42,24 @@ public class FitnessViewModel extends AndroidViewModel {
     public DataPoint[] getSquats(){
         if(squats != null) return squats;
 
-        getAllFitness();
+        int size = getAllFitness().getValue().size();
         squats = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
+        int xAxis  = 1;
 
         for (Fitness fitness :allFitness.getValue()) {
             if (fitness.getExerciseName().equalsIgnoreCase("squat")) {
                 //Substring day and months from the date
                 int month = Integer.valueOf(fitness.getDate().substring(3, 5));
                 int day = Integer.valueOf(fitness.getDate().substring(0, 2));
-                int year = Integer.valueOf(fitness.getDate().substring(6));
-                int date = year*10000+month*100+day;
-                Log.e("Hej", date+"");
+                int year = Integer.valueOf(fitness.getDate().substring(8));
+                int date = (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(date, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(xAxis, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 squats[indexer] = tempDP;
                 indexer++;
+                xAxis++;
             }
         }
         return squats;
@@ -78,7 +79,7 @@ public class FitnessViewModel extends AndroidViewModel {
                 int month = Integer.valueOf(fitness.getDate().substring(3,5));
                 int day = Integer.valueOf(fitness.getDate().substring(0,2));
                 int year = Integer.valueOf(fitness.getDate().substring(6));
-                int date = year*10000+month*100+day;
+                int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
                 DataPoint tempDP = new DataPoint(date, fitness.getWeight());
                 //Insert datapoint into array and increment counter
@@ -104,8 +105,7 @@ public class FitnessViewModel extends AndroidViewModel {
                 int month = Integer.valueOf(fitness.getDate().substring(3,5));
                 int day = Integer.valueOf(fitness.getDate().substring(0,2));
                 int year = Integer.valueOf(fitness.getDate().substring(6));
-                int date = year*10000+month*100+day;
-                Log.e("Hej", date+"");
+                int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
                 DataPoint tempDP = new DataPoint(date, fitness.getWeight());
                 //Insert datapoint into array and increment counter

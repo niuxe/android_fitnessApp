@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">VIA Fitness</string>
     <string name="tab_text_1">Calendar</string>
     <string name="tab_text_2">Today</string>
     <string name="tab_text_3">Progress</string>

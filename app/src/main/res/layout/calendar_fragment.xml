@@ -58,7 +58,6 @@
         android:layout_height="41dp"
         android:layout_marginBottom="60dp"
         android:gravity="center"
-        android:text="blablabala"
         android:textSize="30sp" />
 
 </LinearLayout>

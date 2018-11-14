@@ -32,6 +32,7 @@ class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder>
         viewHolder.exerciseName.setText(exercises.get(i).getExerciseName());
         viewHolder.setsView.setText(exercises.get(i).getSets());
         viewHolder.repsView.setText(exercises.get(i).getReps());
+        viewHolder.weightView.setText(exercises.get(i).getWeight());
     }
 
     @Override
@@ -44,12 +45,14 @@ class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder>
         TextView exerciseName;
         TextView setsView;
         TextView repsView;
+        TextView weightView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             exerciseName = itemView.findViewById(R.id.exerciseName);
             setsView = itemView.findViewById(R.id.sets);
             repsView = itemView.findViewById(R.id.reps);
+            weightView = itemView.findViewById(R.id.weight);
         }
 
         @Override

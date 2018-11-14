@@ -24,6 +24,6 @@ public interface FitnessDAO {
     @Query("DELETE FROM fitness_Table")
     void deleteAllFitness();
 
-    @Query("SELECT * FROM fitness_Table ORDER BY ID DESC")
+    @Query("SELECT * FROM fitness_Table ORDER BY ID ASC")
     LiveData<List<Fitness>>getAllFitness();
 }

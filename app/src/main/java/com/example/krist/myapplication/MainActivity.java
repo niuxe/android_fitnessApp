@@ -20,10 +20,6 @@ import android.view.View;
 
 import android.widget.Toast;
 
-import com.example.krist.myapplication.DB.Calendar_D;
-import com.example.krist.myapplication.DB.CalendarViewModel;
-import com.example.krist.myapplication.DB.Excercise_D;
-import com.example.krist.myapplication.DB.ExcerciseViewModel;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -32,8 +28,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CalendarViewModel calendarViewModel;
-    private ExcerciseViewModel excerciseViewModel;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -79,35 +73,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        GraphView graphView = findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-        new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-
-        });
-
-        //ViewMODEL
-        calendarViewModel = ViewModelProviders.of(this).get(CalendarViewModel.class);
-        excerciseViewModel = ViewModelProviders.of(this).get(ExcerciseViewModel.class);
-
-        calendarViewModel.getAllCalendars().observe(this, new Observer<List<Calendar_D>>() {
-            @Override
-            public void onChanged(@Nullable List<Calendar_D> calendars) {
-                //update RecyclerView Calendar_D
-                Toast.makeText(MainActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
-            }
-        });
-        excerciseViewModel.getAllExcercises().observe(this, new Observer<List<Excercise_D>>() {
-            @Override
-            public void onChanged(@Nullable List<Excercise_D> excercises) {
-                //update RecyclerView Excercises
-                Toast.makeText(MainActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

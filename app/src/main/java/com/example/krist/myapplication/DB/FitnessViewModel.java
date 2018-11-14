@@ -38,7 +38,7 @@ public class FitnessViewModel extends AndroidViewModel {
         return allFitness;
     }
 
-    DataPoint[] squats;
+    DataPoint[] squats = null;
     public DataPoint[] getSquats(){
         if(squats != null) return squats;
 
@@ -64,7 +64,7 @@ public class FitnessViewModel extends AndroidViewModel {
         return squats;
     }
 
-    DataPoint[] deadlift;
+    DataPoint[] deadlift = null;
     public DataPoint[] getDeadlift(){
         if(deadlift != deadlift) return deadlift;
 
@@ -90,7 +90,7 @@ public class FitnessViewModel extends AndroidViewModel {
         return deadlift;
     }
 
-    DataPoint[] benchpress;
+    DataPoint[] benchpress = null;
     public DataPoint[] getBenchPress(){
         if(benchpress != null) return benchpress;
 

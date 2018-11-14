@@ -3,6 +3,7 @@ package com.example.krist.myapplication;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,29 +24,39 @@ import java.util.List;
 public class Fragment3_Graph extends Fragment {
     private FitnessViewModel FVM;
     private LineGraphSeries<DataPoint> squatSeries;
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.graph_fragment, container, false);
 
         FVM = ViewModelProviders.of(this).get(FitnessViewModel.class);
 
         GraphView squatGraph = rootView.findViewById(R.id.graph);
-        squatGraph.getViewport().setScalable(true);
-        squatGraph.getViewport().setScalableY(true);
+        squatGraph.getViewport().setMinX(0);
+        squatGraph.getViewport().setMaxX(10);
+        squatGraph.getViewport().setMinY(0);
+        squatGraph.getViewport().setMaxX(10);
 
         FVM.getAllFitness().observe(this, new Observer<List<Fitness>>() {
             @Override
             public void onChanged(@Nullable List<Fitness> fitnesses) {
 
                 if(!fitnesses.isEmpty()) {
-                    squatSeries = new LineGraphSeries<>(FVM.getSquats());
+                    squatSeries = new LineGraphSeries<>(new DataPoint[] {
+                            new DataPoint(0,1),
+                            new DataPoint(2,3),
+                            new DataPoint(4,5)
 
+                    });
+                    squatSeries.setDrawDataPoints(true);
+                    squatSeries.setThickness(8);
+                    squatSeries.setColor(Color.GREEN);
                 }
 
             }
         });
         if(squatSeries != null)
         squatGraph.addSeries(squatSeries);
+
 
 
         return rootView;

@@ -1,7 +1,10 @@
 package com.example.krist.myapplication.View;
 
 import android.app.AlertDialog;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.krist.myapplication.DB.Fitness;
+import com.example.krist.myapplication.DB.FitnessViewModel;
 import com.example.krist.myapplication.R;
 import com.example.krist.myapplication.Viewmodel.ExerciseTag;
 import com.example.krist.myapplication.Viewmodel.PlanExercise;
@@ -19,6 +24,7 @@ import com.example.krist.myapplication.Viewmodel.PlanExerciseAdapter;
 import com.example.krist.myapplication.Viewmodel.Statics;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class PlanningActivity  extends AppCompatActivity implements PlanExerciseAdapter.iPlanExClickListener{
@@ -30,8 +36,14 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
     private int weightValue = 1;
     private int setsValue = 1;
 
+    private FitnessViewModel FVM;
+    Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bundle = getIntent().getExtras();
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.planning_activity);
 
@@ -44,13 +56,22 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(R.layout.new_plan_item_dialog);
         dialog = builder.create();
+
+        FVM = ViewModelProviders.of(this).get(FitnessViewModel.class);
+        /*FVM.getAllFitness().observe(this, new Observer<List<Fitness>>() {
+            @Override
+            public void onChanged(@Nullable List<Fitness> fitnesses) {
+
+            }
+        });*/
+
     }
 
     public ArrayList<PlanExercise> GenPlanExercises(){
         ArrayList<PlanExercise> genList = new ArrayList<PlanExercise>();
-        for (int i = 0; i < planExAdapter.getPlanExList().size(); i++){
-            //genList.add(planExAdapter.getPlanExList().get(i));
-        }
+        /*for (int i = 0; i < planExAdapter.getPlanExList().size(); i++){
+            genList.add(planExAdapter.getPlanExList().get(i));
+        }*/
         genList.add(new PlanExercise("Benchpress that s**t", ExerciseTag.CHEST, 1,1,true));
         return genList;
     }
@@ -96,6 +117,7 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
         okButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 addNewPlanExercise();
+
                 dialog.hide();
             }
         });
@@ -135,6 +157,10 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
 
         planExAdapter.getPlanExList().add(new PlanExercise(nameInput.getText().toString(), Statics.IntToTag(tagSpinner.getSelectedItemPosition()), weightValue, setsValue, false ));
         planExAdapter.notifyItemChanged(planExAdapter.getPlanExList().size()-1);
+        planExAdapter.notifyDataSetChanged();
+
+        String tempString = bundle.getString("key");
+        FVM.insert(new Fitness(tempString, nameInput.getText().toString(), weightValue, setsValue, 0));
     }
 
     @Override

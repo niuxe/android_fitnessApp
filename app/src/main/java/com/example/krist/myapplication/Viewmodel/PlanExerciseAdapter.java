@@ -116,6 +116,14 @@ public class PlanExerciseAdapter extends RecyclerView.Adapter<PlanExerciseAdapte
                 planExList.get(getAdapterPosition()).decrementSets();
                 sets.setText(planExList.get(getAdapterPosition()).getSets());
             }
+            else if(view.equals(suggestDiscard)){
+                planExList.remove(getAdapterPosition());
+                notifyDataSetChanged();
+            }
+            else if(view.equals(suggestAccept)){
+                PlanExercise temp = planExList.get(getAdapterPosition());
+                planExList.set(getAdapterPosition(), new PlanExercise(temp.getName(), temp.getTag(), temp.getWeight(), temp.getSets(), false));
+            }
             else {
                 listener.onPlanExClick(getAdapterPosition());
             }

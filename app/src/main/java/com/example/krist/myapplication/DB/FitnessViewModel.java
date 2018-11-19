@@ -118,4 +118,15 @@ public class FitnessViewModel extends AndroidViewModel {
 
         return benchpress;
     }
+
+    public ArrayList<Fitness> getExercisesToday(String date) {
+        ArrayList<Fitness> temp = new ArrayList<>();
+        for (Fitness fitness: allFitness.getValue()){
+            String test = fitness.getDate();
+            if(test.equalsIgnoreCase(date)){
+                temp.add(fitness);
+            }
+        }
+        return temp;
+    }
 }

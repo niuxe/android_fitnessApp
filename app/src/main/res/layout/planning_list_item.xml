@@ -58,7 +58,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@android:drawable/arrow_down_float"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <LinearLayout
                     android:id="@+id/weightSubC"
@@ -98,7 +98,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@android:drawable/arrow_up_float"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,7 +115,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@android:drawable/arrow_down_float"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <LinearLayout
                     android:id="@+id/setsSubC"
@@ -154,7 +154,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@android:drawable/arrow_up_float"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
@@ -171,7 +171,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@android:drawable/ic_input_add"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
                 <ImageButton
                     android:id="@+id/suggestDiscard"
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@android:drawable/ic_delete"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>

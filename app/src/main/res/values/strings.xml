@@ -1,10 +1,19 @@
 <resources>
-    <string name="app_name">VIA Fitness</string>
-    <string name="tab_text_1">Calendar</string>
-    <string name="tab_text_2">Today</string>
-    <string name="tab_text_3">Progress</string>
+    <string name="app_name">My Application</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string-array name="exercise_tags">
+        <item>Biceps</item>
+        <item>Triceps</item>
+        <item>Shoulder</item>
+        <item>Chest</item>
+        <item>Back</item>
+        <item>Chest</item>
+    </string-array>
+
     <string name="staticText">Workout plan: </string>
     <string name="staticText1">Workout quantity: </string>
 </resources>

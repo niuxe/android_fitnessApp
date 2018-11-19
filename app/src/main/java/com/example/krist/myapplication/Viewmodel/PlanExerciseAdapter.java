@@ -26,6 +26,10 @@ public class PlanExerciseAdapter extends RecyclerView.Adapter<PlanExerciseAdapte
         this.listener = listener;
     }
 
+    public ArrayList<PlanExercise> getPlanExList() {
+        return planExList;
+    }
+
     @NonNull
     @Override
     public PlanExerciseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -40,6 +44,25 @@ public class PlanExerciseAdapter extends RecyclerView.Adapter<PlanExerciseAdapte
         holder.exTag.setText(""+Statics.TagToString(planExList.get(i).getTag()));
         holder.weight.setText(""+Statics.WeightIncrement(planExList.get(i).getWeight()));
         holder.sets.setText(""+planExList.get(i).getSets());
+
+        if(planExList.get(i).isSuggestion()){
+            holder.suggestAccept.setVisibility(View.VISIBLE);
+            holder.suggestDiscard.setVisibility(View.VISIBLE);
+
+            holder.weightUp.setVisibility(View.GONE);
+            holder.weightDown.setVisibility(View.GONE);
+            holder.setsUp.setVisibility(View.GONE);
+            holder.setsDown.setVisibility(View.GONE);
+        }
+        else{
+            holder.suggestAccept.setVisibility(View.GONE);
+            holder.suggestDiscard.setVisibility(View.GONE);
+
+            holder.weightUp.setVisibility(View.VISIBLE);
+            holder.weightDown.setVisibility(View.VISIBLE);
+            holder.setsUp.setVisibility(View.VISIBLE);
+            holder.setsDown.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -77,7 +100,25 @@ public class PlanExerciseAdapter extends RecyclerView.Adapter<PlanExerciseAdapte
 
         @Override
         public void onClick(View view) {
-            listener.onPlanExClick(getAdapterPosition());
+            if(view.equals(weightDown)){
+                planExList.get(getAdapterPosition()).decrementWeight();
+                weight.setText(planExList.get(getAdapterPosition()).getWeight());
+            }
+            else if(view.equals(weightUp)){
+                planExList.get(getAdapterPosition()).incrementWeight();
+                weight.setText(planExList.get(getAdapterPosition()).getWeight());
+            }
+            else if(view.equals(setsUp)){
+                planExList.get(getAdapterPosition()).incrementSets();
+                sets.setText(planExList.get(getAdapterPosition()).getSets());
+            }
+            else if(view.equals(setsDown)){
+                planExList.get(getAdapterPosition()).decrementSets();
+                sets.setText(planExList.get(getAdapterPosition()).getSets());
+            }
+            else {
+                listener.onPlanExClick(getAdapterPosition());
+            }
         }
     }
 }

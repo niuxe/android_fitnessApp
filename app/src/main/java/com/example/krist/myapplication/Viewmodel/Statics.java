@@ -15,12 +15,30 @@ public final class Statics {
                 break;
             case BACK: ret = "Back";
                 break;
-            case LEGS:ret = "legs";
+            case LEGS:ret = "Legs";
                 break;
         }
         return ret;
     }
 
+    public static ExerciseTag IntToTag(int input){
+        switch(input){
+            case 0:
+                return ExerciseTag.BICEPS;
+            case 1:
+                return ExerciseTag.TRICEPS;
+            case 2:
+                return ExerciseTag.SHOULDER;
+            case 3:
+                return ExerciseTag.CHEST;
+            case 4:
+                return ExerciseTag.BACK;
+            case 5:
+                return ExerciseTag.LEGS;
+            default:
+                return null;
+        }
+    }
     public static double WeightIncrement(int increment){
         double weightMultiplier = 2.5;
         return (increment * weightMultiplier);

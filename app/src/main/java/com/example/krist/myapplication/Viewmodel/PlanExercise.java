@@ -33,4 +33,20 @@ public class PlanExercise {
     public boolean isSuggestion() {
         return isSuggestion;
     }
+
+    public void incrementWeight(){
+        this.weight +=1;
+    }
+
+    public void decrementWeight(){
+        this.weight -=1;
+    }
+
+    public void incrementSets(){
+        this.sets +=1;
+    }
+
+    public void decrementSets(){
+        this.sets -=1;
+    }
 }

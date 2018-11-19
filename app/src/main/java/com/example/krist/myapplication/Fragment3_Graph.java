@@ -71,7 +71,7 @@ public class Fragment3_Graph extends Fragment {
                     for (DataPoint temp : FVM.getSquats()) {
                         if (temp != null) {
                             Log.e("hej", temp.getX() + "");
-                            squatSeries.appendData(temp, false, 15, true);
+                            squatSeries.appendData(temp, false, 15, false);
 
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);
@@ -86,7 +86,7 @@ public class Fragment3_Graph extends Fragment {
                     for (DataPoint temp : FVM.getDeadlift()) {
                         if (temp != null) {
                             Log.e("hej", temp.getX() + "");
-                            deadliftSeries.appendData(temp, false, 15, true);
+                            deadliftSeries.appendData(temp, false, 15, false);
 
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);
@@ -101,7 +101,7 @@ public class Fragment3_Graph extends Fragment {
                     for (DataPoint temp : FVM.getBenchPress()) {
                         if (temp != null) {
                             Log.e("hej", temp.getX() + "");
-                            benchpressSeries.appendData(temp, false, 15, true);
+                            benchpressSeries.appendData(temp, false, 15, false);
 
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);

@@ -1,5 +1,6 @@
 package com.example.krist.myapplication.DB;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;

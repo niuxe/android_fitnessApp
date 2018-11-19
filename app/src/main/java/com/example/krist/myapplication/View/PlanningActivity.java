@@ -48,11 +48,14 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
 
     public ArrayList<PlanExercise> GenPlanExercises(){
         ArrayList<PlanExercise> genList = new ArrayList<PlanExercise>();
+        for (int i = 0; i < planExAdapter.getPlanExList().size(); i++){
+            //genList.add(planExAdapter.getPlanExList().get(i));
+        }
         genList.add(new PlanExercise("Benchpress that s**t", ExerciseTag.CHEST, 1,1,true));
         return genList;
     }
 
-    public void CallNamingDialog(){
+    public void CallNamingDialog(View view){
         dialog.show();
         ImageButton setsUp = dialog.findViewById(R.id.setsUp);
         ImageButton setsDown = dialog.findViewById(R.id.setsDown);
@@ -116,13 +119,13 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
     private void diaSetsUp(){
         TextView sets = dialog.findViewById(R.id.sets);
         setsValue+=1;
-        sets.setText(setsValue);
+        sets.setText(""+setsValue);
     }
 
     private void diaSetsDown(){
         TextView sets = dialog.findViewById(R.id.sets);
         setsValue-=1;
-        sets.setText(setsValue);
+        sets.setText(""+setsValue);
     }
 
     private void addNewPlanExercise(){

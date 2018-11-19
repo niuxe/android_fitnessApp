@@ -1,5 +1,7 @@
 package com.example.krist.myapplication;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
+
+import com.example.krist.myapplication.View.PlanningActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,18 +20,22 @@ public class Fragment1_Calendar extends Fragment{
 
     private TextView todaysDate ;
     private TextView todaysWorkout;
+   // private TextView workoutQuantity;
     private CalendarView calendarView;
-    private java.util.Calendar c;
     private SimpleDateFormat dateFormat;
     private Date date;
     private String currentDate;
+    private Intent addWorkoutIntent;
+    private FloatingActionButton fab;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.calendar_fragment, container, false);
         //displaying the current date above the calendar
         todaysDate = rootView.findViewById(R.id.todaysDateView);
-        c = java.util.Calendar.getInstance();
+        todaysWorkout = rootView.findViewById(R.id.todaysWorkout);
+       // workoutQuantity = rootView.findViewById(R.id.workoutQuantity);
+        fab = rootView.findViewById(R.id.fab);
         dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         date = new Date();
         currentDate = dateFormat.format(date);
@@ -38,6 +46,12 @@ public class Fragment1_Calendar extends Fragment{
             public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day){
                 String date = day + "/" + (month+1) + "/" + year;
                 todaysDate.setText(date);
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                addWorkoutIntent = new Intent(Fragment1_Calendar.this.getActivity(),PlanningActivity.class);
+                startActivity(addWorkoutIntent);
             }
         });
         //here it should be displaying the workout below the calendar.. will implement after database is ready.

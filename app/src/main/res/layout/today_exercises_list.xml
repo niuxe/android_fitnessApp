@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+    
+    <TextView
+    android:id="@+id/exerciseName"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:text="Exercise"
+    android:textSize="20sp"
+    android:textAlignment="center"
+    android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/sets"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="Sets"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/reps"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="Reps"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Weight"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:gravity="center"/>
+</LinearLayout>

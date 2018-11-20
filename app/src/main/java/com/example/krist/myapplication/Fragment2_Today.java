@@ -49,6 +49,7 @@ public class Fragment2_Today extends Fragment{
             @Override
             public void onChanged(@Nullable List<Fitness> fitnesses) {
                 if(!fitnesses.isEmpty()){
+                    exercises.clear();
                     ArrayList<Fitness> todaysExercises = FVM.getExercisesToday(todaysDate);
 
                     for (Fitness fitness :todaysExercises) {

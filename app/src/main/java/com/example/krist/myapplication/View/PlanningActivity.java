@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.krist.myapplication.DB.Fitness;
 import com.example.krist.myapplication.DB.FitnessViewModel;
+import com.example.krist.myapplication.Fragment3_Graph;
 import com.example.krist.myapplication.R;
 import com.example.krist.myapplication.Viewmodel.ExerciseTag;
 import com.example.krist.myapplication.Viewmodel.PlanExercise;
@@ -167,7 +168,10 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
         SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
         String date = dateformat.format(tempDate);
 
-        FVM.insert(new Fitness(date, nameInput.getText().toString(), weightValue, setsValue, 0));
+        String test = nameInput.getText().toString();
+
+        FVM.insert(new Fitness(date, test, (int)Math.round(weightValue * 2.5), setsValue, 0));
+        FVM.getAllFitness();
     }
 
     @Override

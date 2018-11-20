@@ -26,6 +26,7 @@ public class FitnessViewModel extends AndroidViewModel {
     public void insert(Fitness fitnes){
         repository.insert(fitnes);
     }
+
     public void update(Fitness fitnes){
         repository.update(fitnes);
     }
@@ -39,13 +40,13 @@ public class FitnessViewModel extends AndroidViewModel {
     }
 
     DataPoint[] squats = null;
-    public DataPoint[] getSquats(){
+    public DataPoint[] getSquats(int x){
         if(squats != null) return squats;
 
         int size = getAllFitness().getValue().size();
         squats = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
-        int xAxis  = 1;
+
 
         for (Fitness fitness :allFitness.getValue()) {
             if (fitness.getExerciseName().equalsIgnoreCase("squat")) {
@@ -55,23 +56,23 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(8));
                 int date = (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(xAxis, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(x, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 squats[indexer] = tempDP;
                 indexer++;
-                xAxis++;
+                x++;
             }
         }
         return squats;
     }
 
     DataPoint[] deadlift = null;
-    public DataPoint[] getDeadlift(){
+    public DataPoint[] getDeadlift(int x){
         if(deadlift != deadlift) return deadlift;
 
         deadlift = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
-        int xAxis  = 1;
+
 
         for (Fitness fitness :allFitness.getValue()) {
             if(fitness.getExerciseName().equalsIgnoreCase("deadlift")) {
@@ -81,11 +82,11 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(6));
                 int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(xAxis, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(x, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 deadlift[indexer] = tempDP;
                 indexer++;
-                xAxis++;
+                x++;
             }
         }
 
@@ -93,12 +94,13 @@ public class FitnessViewModel extends AndroidViewModel {
     }
 
     DataPoint[] benchpress = null;
-    public DataPoint[] getBenchPress(){
+    int xAxisBench  = 1;
+    public DataPoint[] getBenchPress(int x){
         if(benchpress != null) return benchpress;
 
         benchpress = new DataPoint[getAllFitness().getValue().size()];
         int indexer = 0;
-        int xAxis  = 1;
+
 
         for (Fitness fitness :allFitness.getValue()) {
             if(fitness.getExerciseName().equalsIgnoreCase("bench press")) {
@@ -108,11 +110,11 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(6));
                 int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(xAxis, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(x, fitness.getWeight());
                 //Insert datapoint into array and increment counter
                 benchpress[indexer] = tempDP;
                 indexer++;
-                xAxis++;
+                x++;
             }
         }
 
@@ -121,7 +123,7 @@ public class FitnessViewModel extends AndroidViewModel {
 
     public ArrayList<Fitness> getExercisesToday(String date) {
         ArrayList<Fitness> temp = new ArrayList<>();
-        for (Fitness fitness: allFitness.getValue()){
+        for (Fitness fitness: getAllFitness().getValue()){
             String test = fitness.getDate();
             if(test.equalsIgnoreCase(date)){
                 temp.add(fitness);

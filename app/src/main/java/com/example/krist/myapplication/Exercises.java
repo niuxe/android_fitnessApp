@@ -3,11 +3,11 @@ package com.example.krist.myapplication;
 public class Exercises {
 
     private String exerciseName;
-    private String sets;
-    private String reps;
-    private String weight;
+    private int sets;
+    private int reps;
+    private int weight;
 
-    public Exercises(String exerciseName,String sets, String reps, String weight){
+    public Exercises(String exerciseName,int sets, int reps, int weight){
         this.exerciseName = exerciseName;
         this.sets = sets;
         this.reps = reps;
@@ -22,23 +22,23 @@ public class Exercises {
         this.exerciseName = exerciseName;
     }
 
-    public String getSets() {
+    public int getSets() {
         return sets;
     }
 
-    public void setSets(String sets) {
+    public void setSets(int sets) {
         this.sets = sets;
     }
 
-    public String getReps() {
+    public int getReps() {
         return reps;
     }
 
-    public void setReps(String reps) {
+    public void setReps(int reps) {
         this.reps = reps;
     }
 
-    public String getWeight() { return weight; }
+    public int getWeight() { return weight; }
 
-    public void setWeight(String weight) {this.weight = weight; }
+    public void setWeight(int weight) {this.weight = weight; }
 }

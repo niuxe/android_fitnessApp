@@ -13,7 +13,5 @@
         <item>Back</item>
         <item>Chest</item>
     </string-array>
-
     <string name="staticText">Workout plan: </string>
-    <string name="staticText1">Workout quantity: </string>
 </resources>

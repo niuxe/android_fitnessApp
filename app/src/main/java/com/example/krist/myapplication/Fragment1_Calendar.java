@@ -19,8 +19,8 @@ import java.util.Date;
 public class Fragment1_Calendar extends Fragment{
 
     private TextView todaysDate ;
+    private String sendDate;
     private TextView todaysWorkout;
-   // private TextView workoutQuantity;
     private CalendarView calendarView;
     private SimpleDateFormat dateFormat;
     private Date date;
@@ -34,7 +34,6 @@ public class Fragment1_Calendar extends Fragment{
         //displaying the current date above the calendar
         todaysDate = rootView.findViewById(R.id.todaysDateView);
         todaysWorkout = rootView.findViewById(R.id.todaysWorkout);
-       // workoutQuantity = rootView.findViewById(R.id.workoutQuantity);
         fab = rootView.findViewById(R.id.fab);
         dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         date = new Date();
@@ -44,13 +43,14 @@ public class Fragment1_Calendar extends Fragment{
         calendarView = rootView.findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day){
-                String date = day + "/" + (month+1) + "/" + year;
-                todaysDate.setText(date);
+                sendDate = day + "/" + (month+1) + "/" + year;
+                todaysDate.setText(sendDate);
             }
         });
         fab.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 addWorkoutIntent = new Intent(Fragment1_Calendar.this.getActivity(),PlanningActivity.class);
+                addWorkoutIntent.putExtra("key",sendDate);
                 startActivity(addWorkoutIntent);
             }
         });

@@ -54,7 +54,7 @@ public class Fragment1_Calendar extends Fragment{
                 startActivity(addWorkoutIntent);
             }
         });
-        //here it should be displaying the workout below the calendar.. will implement after database is ready.
+
 
         return rootView;
     }

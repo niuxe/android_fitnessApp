@@ -124,7 +124,7 @@ public class FitnessViewModel extends AndroidViewModel {
 
     public ArrayList<Fitness> getExercises(String date){
         ArrayList<Fitness> temp = new ArrayList<>();
-        for (Fitness f:getAllFitness().getValue()) {
+        for (Fitness f: getAllFitness().getValue()) {
             if(f.getDate().equalsIgnoreCase(date)){
                 temp.add(f);
             }

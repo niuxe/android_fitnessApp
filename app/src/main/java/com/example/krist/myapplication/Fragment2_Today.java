@@ -36,19 +36,8 @@ public class Fragment2_Today extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.today_fragment, container, false);
-        dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        date = new Date();
-        currentDate = dateFormat.format(date);
-        fitnessViewModel = ViewModelProviders.of(this).get(FitnessViewModel.class);
-        fitnessViewModel.getAllFitness().observe(this, new Observer<List<Fitness>>() {
-            @Override
-            public void onChanged(@Nullable List<Fitness> fitnesses) {
-                for (Fitness f: fitnessViewModel.getExercises(currentDate)) {
-                    exercises.add(new Exercises(f.getExerciseName(),f.getSets(),f.getReps(),f.getWeight()));
-                }
-            }
-        });
 
+        fitnessViewModel = ViewModelProviders.of(this).get(FitnessViewModel.class);
 
         exercisesList = rootView.findViewById(R.id.rv);
         exercisesList.hasFixedSize();
@@ -56,8 +45,29 @@ public class Fragment2_Today extends Fragment{
 
         exercises = new ArrayList<>();
 
-        exerciseAdapter = new ExercisesAdapter(exercises);
-        exercisesList.setAdapter(exerciseAdapter);
+
+
+        dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        date = Calendar.getInstance().getTime() ;
+        currentDate = dateFormat.format(date);
+
+        fitnessViewModel.getAllFitness().observe(this, new Observer<List<Fitness>>() {
+            @Override
+            public void onChanged(@Nullable List<Fitness> fitnesses) {
+                if(!fitnesses.isEmpty()){
+                ArrayList<Fitness> todaysExercises = fitnessViewModel.getExercises(currentDate);
+
+                for (Fitness f: todaysExercises) {
+                    exercises.add(new Exercises(f.getExerciseName(), f.getSets(), f.getReps(), f.getWeight()));
+                }
+                    exerciseAdapter = new ExercisesAdapter(exercises);
+                    exercisesList.setAdapter(exerciseAdapter);
+            }
+            }
+        });
+
+
+
 
 
 

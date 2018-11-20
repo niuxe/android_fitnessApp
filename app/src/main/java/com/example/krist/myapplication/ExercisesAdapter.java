@@ -30,9 +30,9 @@ class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull ExercisesAdapter.ViewHolder viewHolder, int i) {
         viewHolder.exerciseName.setText(exercises.get(i).getExerciseName());
-        viewHolder.setsView.setText(exercises.get(i).getSets());
-        viewHolder.repsView.setText(exercises.get(i).getReps());
-        viewHolder.weightView.setText(exercises.get(i).getWeight());
+        viewHolder.setsView.setText(exercises.get(i).getSets() + "");
+        viewHolder.repsView.setText(exercises.get(i).getReps() + "");
+        viewHolder.weightView.setText(exercises.get(i).getWeight() + "");
     }
 
     @Override

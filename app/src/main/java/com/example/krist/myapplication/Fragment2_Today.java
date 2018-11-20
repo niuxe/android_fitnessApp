@@ -55,10 +55,11 @@ public class Fragment2_Today extends Fragment{
             @Override
             public void onChanged(@Nullable List<Fitness> fitnesses) {
                 if(!fitnesses.isEmpty()){
+                    exercises.clear();
                 ArrayList<Fitness> todaysExercises = fitnessViewModel.getExercises(currentDate);
 
                 for (Fitness f: todaysExercises) {
-                    Exercises exercise = new Exercises(f.getExerciseName(), f.getSets(), f.getReps(), f.getWeight());
+                    Exercises exercise = new Exercises(f.getExerciseName(), f.getSets(), 8, (int)(f.getWeight() * 2.5));
                     exercises.add(exercise);
                 }
                     exerciseAdapter = new ExercisesAdapter(exercises);

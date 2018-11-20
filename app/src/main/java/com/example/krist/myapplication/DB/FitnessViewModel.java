@@ -56,7 +56,7 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(8));
                 int date = (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(x, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(x, fitness.getWeight() * 2.5);
                 //Insert datapoint into array and increment counter
                 squats[indexer] = tempDP;
                 indexer++;
@@ -83,7 +83,7 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(6));
                 int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(x, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(x,fitness.getWeight() * 2.5 );
                 //Insert datapoint into array and increment counter
                 deadlift[indexer] = tempDP;
                 indexer++;
@@ -111,7 +111,7 @@ public class FitnessViewModel extends AndroidViewModel {
                 int year = Integer.valueOf(fitness.getDate().substring(6));
                 int date = (year*10000) + (month*100) + day;
                 //create a new datapoint
-                DataPoint tempDP = new DataPoint(x, fitness.getWeight());
+                DataPoint tempDP = new DataPoint(x, fitness.getWeight() * 2.5);
                 //Insert datapoint into array and increment counter
                 benchpress[indexer] = tempDP;
                 indexer++;

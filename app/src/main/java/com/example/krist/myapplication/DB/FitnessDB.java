@@ -42,7 +42,7 @@ public abstract class FitnessDB extends RoomDatabase {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            fitnessDao.insert(new Fitness("12/11/2018","Deadlift",120,4,2));
+         /*   fitnessDao.insert(new Fitness("12/11/2018","Deadlift",120,4,2));
             fitnessDao.insert(new Fitness("19/11/2018","Deadlift",120,4,2));
             fitnessDao.insert(new Fitness("26/11/2018","Deadlift",120,4,2));
 
@@ -62,7 +62,7 @@ public abstract class FitnessDB extends RoomDatabase {
             fitnessDao.insert(new Fitness("10/12/2018","Squat",80,4,8));
             fitnessDao.insert(new Fitness("17/12/2018","Squat",90,4,8));
             fitnessDao.insert(new Fitness("24/12/2018","Squat",90,4,8));
-
+*/
             return null;
         }
     }

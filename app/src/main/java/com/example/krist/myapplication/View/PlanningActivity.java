@@ -170,7 +170,7 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
 
         String test = nameInput.getText().toString();
 
-        FVM.insert(new Fitness(date, test, (int)Math.round(weightValue * 2.5), setsValue, 0));
+        FVM.insert(new Fitness(date, test, weightValue, setsValue, 0));
         FVM.getAllFitness();
     }
 

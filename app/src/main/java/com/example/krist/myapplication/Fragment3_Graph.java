@@ -39,7 +39,7 @@ public class Fragment3_Graph extends Fragment {
             public void onChanged(@Nullable List<Fitness> fitnesses) {
                 if (!fitnesses.isEmpty()) {
 
-                    progressGraph.removeSeries(squatSeries);
+                    progressGraph.removeAllSeries();
                     squatSeries = new LineGraphSeries<>(new DataPoint[]{
                             new DataPoint(0, 0)
                     });
@@ -48,18 +48,19 @@ public class Fragment3_Graph extends Fragment {
                     squatSeries.setDataPointsRadius(15);
                     squatSeries.setColor(Color.GREEN);
                     squatSeries.setDrawDataPoints(true);
+
                     for (DataPoint temp : FVM.getSquats((int)squatSeries.getHighestValueX() + 1)) {
                         if (temp != null) {
                             Log.e("hej", temp.getX() + "");
                             squatSeries.appendData(temp, false, 100, false);
 
+                            progressGraph.addSeries(squatSeries);
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);
                             progressGraph.getViewport().setMaxX(20);
                             progressGraph.getViewport().setMaxY(200);
 
-                            progressGraph.addSeries(squatSeries);
-                            progressGraph.getViewport().scrollToEnd();
+
                         }
                     }
 
@@ -76,13 +77,13 @@ public class Fragment3_Graph extends Fragment {
                             Log.e("hej", temp.getX() + "");
                             deadliftSeries.appendData(temp, false, 100, false);
 
+                            progressGraph.addSeries(deadliftSeries);
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);
                             progressGraph.getViewport().setMaxX(20);
                             progressGraph.getViewport().setMaxY(200);
 
-                            progressGraph.addSeries(deadliftSeries);
-                            progressGraph.getViewport().scrollToEnd();
+
                         }
                     }
 
@@ -99,13 +100,13 @@ public class Fragment3_Graph extends Fragment {
                             Log.e("hej", temp.getX() + "");
                             benchpressSeries.appendData(temp, false, 100, false);
 
+                            progressGraph.addSeries(benchpressSeries);
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);
                             progressGraph.getViewport().setMaxX(20);
                             progressGraph.getViewport().setMaxY(200);
 
-                            progressGraph.addSeries(benchpressSeries);
-                            progressGraph.getViewport().scrollToEnd();
+
                         }
                     }
                 }

@@ -58,7 +58,8 @@ public class Fragment2_Today extends Fragment{
                 ArrayList<Fitness> todaysExercises = fitnessViewModel.getExercises(currentDate);
 
                 for (Fitness f: todaysExercises) {
-                    exercises.add(new Exercises(f.getExerciseName(), f.getSets(), f.getReps(), f.getWeight()));
+                    Exercises exercise = new Exercises(f.getExerciseName(), f.getSets(), f.getReps(), f.getWeight());
+                    exercises.add(exercise);
                 }
                     exerciseAdapter = new ExercisesAdapter(exercises);
                     exercisesList.setAdapter(exerciseAdapter);

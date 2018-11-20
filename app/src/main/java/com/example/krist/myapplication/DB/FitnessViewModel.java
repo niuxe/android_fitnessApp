@@ -66,6 +66,7 @@ public class FitnessViewModel extends AndroidViewModel {
         return squats;
     }
 
+
     DataPoint[] deadlift = null;
     public DataPoint[] getDeadlift(int x){
         if(deadlift != deadlift) return deadlift;

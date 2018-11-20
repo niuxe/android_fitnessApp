@@ -17,13 +17,17 @@ import android.widget.TextView;
 
 import com.example.krist.myapplication.DB.Fitness;
 import com.example.krist.myapplication.DB.FitnessViewModel;
+import com.example.krist.myapplication.Fragment3_Graph;
 import com.example.krist.myapplication.R;
 import com.example.krist.myapplication.Viewmodel.ExerciseTag;
 import com.example.krist.myapplication.Viewmodel.PlanExercise;
 import com.example.krist.myapplication.Viewmodel.PlanExerciseAdapter;
 import com.example.krist.myapplication.Viewmodel.Statics;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -158,9 +162,16 @@ public class PlanningActivity  extends AppCompatActivity implements PlanExercise
         planExAdapter.getPlanExList().add(new PlanExercise(nameInput.getText().toString(), Statics.IntToTag(tagSpinner.getSelectedItemPosition()), weightValue, setsValue, false ));
         planExAdapter.notifyItemChanged(planExAdapter.getPlanExList().size()-1);
         planExAdapter.notifyDataSetChanged();
+/*
+        String tempString = bundle.getString("key");*/
+        Date tempDate = Calendar.getInstance().getTime();
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+        String date = dateformat.format(tempDate);
 
-        String tempString = bundle.getString("key");
-        FVM.insert(new Fitness(tempString, nameInput.getText().toString(), weightValue, setsValue, 0));
+        String test = nameInput.getText().toString();
+
+        FVM.insert(new Fitness(date, test, (int)Math.round(weightValue * 2.5), setsValue, 0));
+        FVM.getAllFitness();
     }
 
     @Override

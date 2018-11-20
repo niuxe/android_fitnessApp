@@ -34,44 +34,24 @@ public class Fragment3_Graph extends Fragment {
 
         final GraphView progressGraph = (GraphView) rootView.findViewById(R.id.graph);
 
-        squatSeries = new LineGraphSeries<>(new DataPoint[]{
-                new DataPoint(0, 0)
-        });
-
-        deadliftSeries = new LineGraphSeries<>(new DataPoint[]{
-                new DataPoint(0, 0)
-        });
-
-        benchpressSeries = new LineGraphSeries<>(new DataPoint[]{
-                new DataPoint(0, 0)
-        });
-
-        //Squat line
-        squatSeries.setThickness(8);
-        squatSeries.setDataPointsRadius(15);
-        squatSeries.setColor(Color.GREEN);
-        squatSeries.setDrawDataPoints(true);
-
-        //deadlift line
-        deadliftSeries.setThickness(8);
-        deadliftSeries.setDataPointsRadius(15);
-        deadliftSeries.setColor(Color.RED);
-        deadliftSeries.setDrawDataPoints(true);
-
-        //bench press line
-        benchpressSeries.setThickness(8);
-        benchpressSeries.setDataPointsRadius(15);
-        benchpressSeries.setColor(Color.BLUE);
-        benchpressSeries.setDrawDataPoints(true);
-
         FVM.getAllFitness().observe(this, new Observer<List<Fitness>>() {
             @Override
             public void onChanged(@Nullable List<Fitness> fitnesses) {
                 if (!fitnesses.isEmpty()) {
-                    for (DataPoint temp : FVM.getSquats()) {
+
+                    progressGraph.removeSeries(squatSeries);
+                    squatSeries = new LineGraphSeries<>(new DataPoint[]{
+                            new DataPoint(0, 0)
+                    });
+                    //Squat line
+                    squatSeries.setThickness(8);
+                    squatSeries.setDataPointsRadius(15);
+                    squatSeries.setColor(Color.GREEN);
+                    squatSeries.setDrawDataPoints(true);
+                    for (DataPoint temp : FVM.getSquats((int)squatSeries.getHighestValueX() + 1)) {
                         if (temp != null) {
                             Log.e("hej", temp.getX() + "");
-                            squatSeries.appendData(temp, false, 15, false);
+                            squatSeries.appendData(temp, false, 100, false);
 
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);
@@ -83,10 +63,18 @@ public class Fragment3_Graph extends Fragment {
                         }
                     }
 
-                    for (DataPoint temp : FVM.getDeadlift()) {
+                    deadliftSeries = new LineGraphSeries<>(new DataPoint[]{
+                            new DataPoint(0, 0)
+                    });
+                    //deadlift line
+                    deadliftSeries.setThickness(8);
+                    deadliftSeries.setDataPointsRadius(15);
+                    deadliftSeries.setColor(Color.RED);
+                    deadliftSeries.setDrawDataPoints(true);
+                    for (DataPoint temp : FVM.getDeadlift((int)deadliftSeries.getHighestValueX() + 1)) {
                         if (temp != null) {
                             Log.e("hej", temp.getX() + "");
-                            deadliftSeries.appendData(temp, false, 15, false);
+                            deadliftSeries.appendData(temp, false, 100, false);
 
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);
@@ -98,10 +86,18 @@ public class Fragment3_Graph extends Fragment {
                         }
                     }
 
-                    for (DataPoint temp : FVM.getBenchPress()) {
+                    benchpressSeries = new LineGraphSeries<>(new DataPoint[]{
+                            new DataPoint(0, 0)
+                    });
+                    //bench press line
+                    benchpressSeries.setThickness(8);
+                    benchpressSeries.setDataPointsRadius(15);
+                    benchpressSeries.setColor(Color.BLUE);
+                    benchpressSeries.setDrawDataPoints(true);
+                    for (DataPoint temp : FVM.getBenchPress((int)benchpressSeries.getHighestValueX() + 1)) {
                         if (temp != null) {
                             Log.e("hej", temp.getX() + "");
-                            benchpressSeries.appendData(temp, false, 15, false);
+                            benchpressSeries.appendData(temp, false, 100, false);
 
                             progressGraph.getViewport().setMinX(0);
                             progressGraph.getViewport().setMinY(0);

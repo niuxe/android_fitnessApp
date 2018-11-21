@@ -64,6 +64,7 @@ public class Fragment2_Today extends Fragment{
                 }
                     exerciseAdapter = new ExercisesAdapter(exercises);
                     exercisesList.setAdapter(exerciseAdapter);
+
             }
             }
         });
